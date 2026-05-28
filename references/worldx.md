@@ -47,7 +47,7 @@ Flow:
 4. Run:
 
 ```bash
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
   --design <run>/world-design.json \
   --map <run>/map.png \
   --chars-dir <run>/characters \
@@ -94,7 +94,7 @@ OpenRouter API keys normally start with `sk-or-v1-`. If `.env` contains `sk-sk-o
 If Codex is interrupted while WorldX is generating, do not start a duplicate job. Run:
 
 ```bash
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs resume --verbose
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs resume --verbose
 ```
 
 If the job is already done, `resume` reports the final world id and switches to it when possible.

@@ -14,7 +14,7 @@ Use this skill to turn a user prompt into a running WorldX world with the bundle
 For "one sentence to game" requests, use Codex Asset Mode:
 
 ```bash
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
   --design /path/to/world-design.json \
   --map /path/to/map.png \
   --chars-dir /path/to/character-pngs \
@@ -52,7 +52,7 @@ The skill is self-contained for normal use. Pass `--root /path/to/WorldX` or set
 
 ```bash
 # Assemble a WorldX world from Codex-generated assets.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs assemble-codex \
   --design /path/to/world-design.json \
   --map /path/to/map.png \
   --chars-dir /path/to/character-pngs \
@@ -65,33 +65,33 @@ Important: local scripts cannot call Codex `image_gen` directly. The agent must 
 
 ```bash
 # Check config, ports, and health without printing API keys.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs diagnose
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs diagnose
 
 # Verify the packaged skill has a bundled runtime and no local developer path dependency.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/self_test.mjs
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/self_test.mjs
 
 # Check text model reachability and image config.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs preflight
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs preflight
 
 # Show app/job/world status.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs status
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs status
 
 # Inspect current or specific generation logs and classify the failure.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs logs
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs logs world_2026-... --lines 120
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs logs
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs logs world_2026-... --lines 120
 
 # Continue watching the active generation after an interruption.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs resume --verbose
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs resume --verbose
 
 # Start or restart the app.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs start
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs restart
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs start
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs restart
 
 # Stop the app.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs stop
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs stop
 
 # Generate and keep intermediate images/logs for debugging.
-node /Users/huangju/.codex/skills/worldx-agent-forge/scripts/worldx.mjs create "..." --size 1 --keep
+node ${CODEX_HOME:-$HOME/.codex}/skills/worldx-agent-forge/scripts/worldx.mjs create "..." --size 1 --keep
 ```
 
 Treat `create` as the **legacy WorldX provider pipeline**. It uses WorldX's configured `IMAGE_GEN_*` provider and may spend OpenRouter/API credits. Do not use it when the user asked Codex itself to generate assets.
