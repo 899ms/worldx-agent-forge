@@ -1,0 +1,4 @@
+interface:
+  display_name: "WorldX Agent Forge"
+  short_description: "Self-contained Codex WorldX game worlds"
+  default_prompt: "Use $worldx-agent-forge in Codex Asset Mode to generate and run a WorldX game world from this idea: a post-apocalyptic cruise ship controlled by a hostile social-ranking AI."

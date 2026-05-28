@@ -1,0 +1,15 @@
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+
+assets/worldx-runtime/.env
+assets/worldx-runtime/.worldx-dev.log
+assets/worldx-runtime/node_modules/
+assets/worldx-runtime/client/node_modules/
+assets/worldx-runtime/server/node_modules/
+assets/worldx-runtime/orchestrator/node_modules/
+assets/worldx-runtime/generators/node_modules/
+assets/worldx-runtime/output/
+assets/worldx-runtime/server/data/*.db*
+assets/worldx-runtime/server/data/*.sqlite*
