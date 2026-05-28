@@ -31,9 +31,16 @@ function getRequestTimeoutMs(overrideMs?: number): number {
 
 export class LLMClient {
   private config: LLMConfig;
+  private envBacked: boolean;
 
   constructor(config?: LLMConfig) {
     this.config = config ?? buildConfigFromEnv();
+    this.envBacked = !config;
+  }
+
+  reloadConfigFromEnv(): void {
+    if (!this.envBacked) return;
+    this.config = buildConfigFromEnv();
   }
 
   async call<T>(params: {

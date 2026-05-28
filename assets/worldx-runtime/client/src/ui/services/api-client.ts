@@ -88,6 +88,13 @@ export interface GeneratedWorldListResponse {
   libraryWorlds: GeneratedWorldSummary[];
 }
 
+export interface LLMSettings {
+  baseUrl: string;
+  model: string;
+  hasApiKey: boolean;
+  apiKeyPreview: string;
+}
+
 export type CreateJobSizeK = 1 | 2 | 4;
 
 export type CreateJobPhase = 1 | 2 | 3 | 4;
@@ -126,6 +133,23 @@ export class JobConflictError extends Error {
 }
 
 export const apiClient = {
+  getLLMSettings(): Promise<{ ok: boolean; simulation: LLMSettings }> {
+    return fetchJSON("/settings/llm");
+  },
+
+  saveLLMSettings(params: {
+    baseUrl: string;
+    apiKey?: string;
+    model: string;
+    clearApiKey?: boolean;
+  }): Promise<{ ok: boolean; simulation: LLMSettings }> {
+    return requestJSON("/settings/llm", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(params),
+    });
+  },
+
   getWorldTime(): Promise<WorldTimeInfo> {
     return fetchJSON("/world/time");
   },

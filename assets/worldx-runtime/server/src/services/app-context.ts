@@ -115,6 +115,14 @@ export class AppContext {
     this.createNewTimeline();
   }
 
+  reloadLLMConfig(): void {
+    if (!this.llmClient) {
+      this.llmClient = new LLMClient();
+      return;
+    }
+    this.llmClient.reloadConfigFromEnv();
+  }
+
   private beginRecording(): void {
     const characters = this.getInitFrameCharacters();
     this.timelineManager.startRecording(characters);

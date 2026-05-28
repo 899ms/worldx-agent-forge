@@ -199,6 +199,8 @@ SIMULATION_API_KEY=
 SIMULATION_MODEL=
 ```
 
+这些运行时模型设置可以直接在 WorldX 页面右上角的“模型设置”里填写并保存。保存后再点击“开始运行”，角色会使用新的模型配置，不需要手动编辑 `.env`。
+
 如果你使用 WorldX 原始的 legacy provider pipeline，也就是直接调用：
 
 ```bash

@@ -87,6 +87,8 @@
     "godModeTitle": "向世界广播事件或给某个角色植入记忆",
     "sandboxChat": "💬 架空对话",
     "sandboxChatTitle": "把某个角色叫出来单独聊（不进入记忆、不影响世界）",
+    "modelSettings": "模型设置",
+    "modelSettingsTitle": "配置角色运行时使用的大模型",
     "newWorld": "✦ 新世界",
     "newWorldTitle": "创建一个全新的世界",
     "creatingTimeline": "创建中...",
@@ -110,6 +112,22 @@
     "sampleWorlds": "示例世界",
     "enableDevMode": "开启开发者模式",
     "disableDevMode": "关闭开发者模式"
+  },
+  "settings": {
+    "title": "模型设置",
+    "subtitle": "配置角色自动决策、对话和记忆使用的 SIMULATION 模型。",
+    "close": "关闭",
+    "loading": "正在读取设置...",
+    "baseUrl": "Base URL",
+    "model": "Model",
+    "apiKey": "API Key",
+    "keepExistingKey": "留空则继续使用当前密钥（{{key}}）",
+    "clearApiKey": "清空已保存的 API Key",
+    "hint": "保存后会立即写入本地 .env 并刷新当前服务里的模型配置。随后点击“开始运行”，角色会使用这里的设置。",
+    "saved": "已保存，点击“开始运行”即可使用新配置。",
+    "cancel": "取消",
+    "save": "保存并应用",
+    "saving": "保存中..."
   },
   "sidePanel": {
     "charPanel": "角色面板",

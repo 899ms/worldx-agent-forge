@@ -87,6 +87,8 @@
     "godModeTitle": "Broadcast events or implant memories into characters",
     "sandboxChat": "💬 Sandbox Chat",
     "sandboxChatTitle": "Pull a character out for a private chat (no memory, no world impact)",
+    "modelSettings": "Model Settings",
+    "modelSettingsTitle": "Configure the LLM used by runtime characters",
     "newWorld": "✦ New World",
     "newWorldTitle": "Create a brand-new world",
     "creatingTimeline": "Creating...",
@@ -110,6 +112,22 @@
     "sampleWorlds": "Sample Worlds",
     "enableDevMode": "Enable Developer Mode",
     "disableDevMode": "Disable Developer Mode"
+  },
+  "settings": {
+    "title": "Model Settings",
+    "subtitle": "Configure the SIMULATION model used for character decisions, dialogue, and memory.",
+    "close": "Close",
+    "loading": "Loading settings...",
+    "baseUrl": "Base URL",
+    "model": "Model",
+    "apiKey": "API Key",
+    "keepExistingKey": "Leave blank to keep the current key ({{key}})",
+    "clearApiKey": "Clear saved API key",
+    "hint": "Saving writes to the local .env and refreshes the running server config. After that, click Run to use the new settings.",
+    "saved": "Saved. Click Run to use the new configuration.",
+    "cancel": "Cancel",
+    "save": "Save and Apply",
+    "saving": "Saving..."
   },
   "sidePanel": {
     "charPanel": "Character",

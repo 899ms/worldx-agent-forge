@@ -18,6 +18,7 @@ import simulationRoutes from "./api/routes/simulation.js";
 import godRoutes from "./api/routes/god.js";
 import sandboxChatRoutes from "./api/routes/sandbox-chat.js";
 import timelineRoutes from "./api/routes/timeline.js";
+import settingsRoutes from "./api/routes/settings.js";
 import { resolveInitialWorldDir } from "./utils/world-directories.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -88,6 +89,7 @@ async function main() {
 
   // World creation & management routes work even without an active world.
   app.use("/api/worlds", worldsCreateRoutes);
+  app.use("/api/settings", settingsRoutes);
 
   // Guard: all other API routes require an active world to be loaded.
   const requireWorld: express.RequestHandler = (_req, res, next) => {

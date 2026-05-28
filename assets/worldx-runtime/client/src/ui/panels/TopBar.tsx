@@ -9,6 +9,7 @@ import type { WorldInfo, GeneratedWorldSummary } from "../services/api-client";
 import { GodPanel } from "./GodPanel";
 import { SandboxChatPanel } from "./SandboxChatPanel";
 import { TimelineManagerModal } from "./TimelineManagerModal";
+import { ModelSettingsModal } from "./ModelSettingsModal";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { translatePeriod } from "../utils/time-i18n";
 import { sortLibraryWorldsForLocale } from "../utils/library-world-sort";
@@ -69,6 +70,7 @@ export function TopBar({
   const [showPauseToast, setShowPauseToast] = useState(false);
   const [isChangingTickGranularity, setIsChangingTickGranularity] = useState(false);
   const [managerModalOpen, setManagerModalOpen] = useState(false);
+  const [modelSettingsOpen, setModelSettingsOpen] = useState(false);
   const [timelines, setTimelines] = useState<TimelineMeta[]>([]);
   const [selectedTimelineId, setSelectedTimelineId] = useState("");
   const [isSwitchingTimeline, setIsSwitchingTimeline] = useState(false);
@@ -471,6 +473,13 @@ export function TopBar({
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
           <button onClick={() => navigate("/timeline")} style={chipBtnStyle(false)}>{t("topbar.eventLog")}</button>
           <button
+            onClick={() => setModelSettingsOpen(true)}
+            style={chipBtnStyle(modelSettingsOpen)}
+            title={t("topbar.modelSettingsTitle")}
+          >
+            {t("topbar.modelSettings")}
+          </button>
+          <button
             onClick={() => setGodPanelOpen(true)}
             disabled={inReplayMode}
             style={{ ...chipBtnStyle(godPanelOpen), opacity: inReplayMode ? 0.4 : 1, cursor: inReplayMode ? "not-allowed" : "pointer" }}
@@ -559,6 +568,9 @@ export function TopBar({
         : null}
       {managerModalOpen && typeof document !== "undefined"
         ? createPortal(<TimelineManagerModal onClose={() => setManagerModalOpen(false)} />, document.body)
+        : null}
+      {modelSettingsOpen && typeof document !== "undefined"
+        ? createPortal(<ModelSettingsModal onClose={() => setModelSettingsOpen(false)} />, document.body)
         : null}
     </div>
   );
